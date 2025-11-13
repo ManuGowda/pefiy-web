@@ -2,9 +2,20 @@
 
 ## Overview
 
-Pefiy is a modern web application designed to transform remittances into strategic crypto investments through AI-powered finance tools. The platform features a marketing landing page with a waitlist signup system, built with a focus on vibrant gradients, glassmorphism effects, and smooth animations inspired by modern crypto wallet interfaces like Pass.app.
+Pefiy is a modern web application designed to transform remittances into strategic crypto investments through AI-powered finance tools. The platform features a marketing landing page with a waitlist signup system, built with a warm, playful aesthetic featuring coral-orange and teal gradients, glassmorphism effects, and smooth animations. The design emphasizes approachability and optimism through 3D illustration-inspired visuals.
 
 The application uses a full-stack TypeScript architecture with React on the frontend and Express on the backend, designed to scale from a landing page to a comprehensive crypto finance platform.
+
+## Recent Changes (January 2025)
+
+**Complete Rebranding to Warm, Playful Aesthetic:**
+- Color palette changed from purple-blue to coral-orange (hsl(12, 100%, 65%)) and teal (hsl(175, 50%, 55%))
+- Hero image replaced with 3D illustration showing character viewing financial charts and coins
+- All gradients updated from `gradient-purple-blue` to `gradient-orange-teal`
+- Chart colors updated to green (hsl(115, 45%, 55%)), golden yellow (hsl(40, 95%, 60%)), and teal accents
+- Design guidelines updated to reflect warm, friendly branding approach
+- All UI components (buttons, icons, success states) now use warm color palette
+- Glassmorphism shadows updated to warm teal/orange tints
 
 ## User Preferences
 
@@ -27,10 +38,11 @@ Preferred communication style: Simple, everyday language.
 - Custom design system based on Inter font family with gradient-first visual language
 
 **Design Philosophy:**
-The frontend follows a Pass.app-inspired design approach emphasizing:
-- Purple-to-blue gradient overlays as primary visual anchors
+The frontend follows a warm, playful 3D illustration aesthetic emphasizing:
+- Coral-orange to teal gradient overlays as primary visual anchors
 - Glassmorphism aesthetic with frosted glass effects (backdrop-blur-lg, bg-white/10)
 - Motion-enhanced experience with fade-up and slide-up animations on viewport entry
+- Warm, approachable color palette making finance feel friendly and optimistic
 - Mobile-first responsive design with consistent spacing primitives
 - Component-based architecture with reusable UI primitives from shadcn/ui
 
@@ -135,7 +147,8 @@ The frontend follows a Pass.app-inspired design approach emphasizing:
 - Vite with React plugin and Replit-specific development enhancements
 
 **Asset Management:**
-- Images stored in attached_assets/generated_images directory
+- Images stored in attached_assets/ directory
+- Hero image: 3D illustration (landing-page_1763053460279.png) featuring character with financial charts
 - Vite alias (@assets) for importing static assets
 - Path aliases configured: @/ (client/src), @shared/ (shared), @assets/ (attached_assets)
 
