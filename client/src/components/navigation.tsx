@@ -105,7 +105,7 @@ export function Navigation() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="absolute right-0 mt-2 w-48 backdrop-blur-xl bg-background/60 border border-border/50 rounded-2xl shadow-lg overflow-hidden"
+                  className="absolute right-0 mt-2 w-48 backdrop-blur-xl bg-background/90 border border-border/50 rounded-2xl shadow-lg overflow-hidden"
                 >
                   <div className="py-2">
                     <Link href="/about">
