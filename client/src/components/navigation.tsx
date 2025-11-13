@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Sparkles, Menu, X, Moon, Sun } from "lucide-react";
 
 export function Navigation() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
@@ -44,7 +43,6 @@ export function Navigation() {
   };
 
   const scrollToWaitlist = () => {
-    setMobileMenuOpen(false);
     const waitlistElement = document.getElementById('waitlist');
     if (waitlistElement) {
       waitlistElement.scrollIntoView({ behavior: 'smooth' });
@@ -93,14 +91,6 @@ export function Navigation() {
               </Button>
             </div>
 
-            <button 
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              data-testid="button-menu-toggle"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-
             <div className="relative">
               <button 
                 onClick={() => setBurgerMenuOpen(!burgerMenuOpen)}
@@ -135,50 +125,45 @@ export function Navigation() {
                         Blog
                       </div>
                     </Link>
+                    
+                    <div className="md:hidden border-t border-border/50 mt-2 pt-2">
+                      <button
+                        onClick={() => {
+                          toggleTheme();
+                          setBurgerMenuOpen(false);
+                        }}
+                        className="w-full px-4 py-3 text-sm hover-elevate active-elevate-2 transition-colors flex items-center gap-2"
+                        data-testid="button-theme-toggle-burger"
+                      >
+                        {theme === 'dark' ? (
+                          <>
+                            <Sun className="w-4 h-4" />
+                            <span>Light Mode</span>
+                          </>
+                        ) : (
+                          <>
+                            <Moon className="w-4 h-4" />
+                            <span>Dark Mode</span>
+                          </>
+                        )}
+                      </button>
+                      <button
+                        onClick={() => {
+                          scrollToWaitlist();
+                          setBurgerMenuOpen(false);
+                        }}
+                        className="w-full px-4 py-3 text-sm text-primary font-medium hover-elevate active-elevate-2 transition-colors text-left"
+                        data-testid="button-join-burger"
+                      >
+                        Join Waitlist
+                      </button>
+                    </div>
                   </div>
                 </motion.div>
               )}
             </div>
           </div>
         </div>
-      
-        {mobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-2 backdrop-blur-xl bg-background/60 border border-border/50 rounded-3xl overflow-hidden"
-          >
-            <div className="px-4 py-4 space-y-3">
-            <button
-              onClick={toggleTheme}
-              className="w-full p-3 rounded-lg hover-elevate active-elevate-2 flex items-center justify-center gap-2"
-              data-testid="button-theme-toggle-mobile"
-            >
-              {theme === 'dark' ? (
-                <>
-                  <Sun className="w-5 h-5" />
-                  <span className="text-sm font-medium">Light Mode</span>
-                </>
-              ) : (
-                <>
-                  <Moon className="w-5 h-5" />
-                  <span className="text-sm font-medium">Dark Mode</span>
-                </>
-              )}
-            </button>
-            <Button 
-              size="default" 
-              variant="default"
-              className="w-full" 
-              data-testid="button-join-mobile"
-              onClick={scrollToWaitlist}
-            >
-              Join Waitlist
-            </Button>
-            </div>
-          </motion.div>
-        )}
       </div>
     </motion.nav>
   );
