@@ -194,7 +194,7 @@ function TypewriterText() {
   }, [currentText, isDeleting, currentWordIndex, words]);
 
   return (
-    <span className="inline-block min-w-[200px] text-left">
+    <span className="inline-block min-w-[200px] text-left text-primary">
       {currentText}
       <span className="animate-pulse">|</span>
     </span>
