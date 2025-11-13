@@ -68,19 +68,20 @@ export function Navigation() {
           </Link>
 
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-6">
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-lg hover-elevate active-elevate-2"
-                aria-label="Toggle theme"
-                data-testid="button-theme-toggle"
-              >
-                {theme === 'dark' ? (
-                  <Sun className="w-5 h-5" />
-                ) : (
-                  <Moon className="w-5 h-5" />
-                )}
-              </button>
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover-elevate active-elevate-2"
+              aria-label="Toggle theme"
+              data-testid="button-theme-toggle"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </button>
+
+            <div className="hidden md:block">
               <Button 
                 size="default" 
                 variant="default"
@@ -128,26 +129,6 @@ export function Navigation() {
                     </Link>
                     
                     <div className="md:hidden border-t border-border/50 mt-2 pt-2">
-                      <button
-                        onClick={() => {
-                          toggleTheme();
-                          setBurgerMenuOpen(false);
-                        }}
-                        className="w-full px-4 py-3 text-sm hover-elevate active-elevate-2 transition-colors flex items-center gap-2"
-                        data-testid="button-theme-toggle-burger"
-                      >
-                        {theme === 'dark' ? (
-                          <>
-                            <Sun className="w-4 h-4" />
-                            <span>Light Mode</span>
-                          </>
-                        ) : (
-                          <>
-                            <Moon className="w-4 h-4" />
-                            <span>Dark Mode</span>
-                          </>
-                        )}
-                      </button>
                       <button
                         onClick={() => {
                           scrollToWaitlist();
