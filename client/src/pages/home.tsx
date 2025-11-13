@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Sparkles, Shield, TrendingUp, Zap, CheckCircle, Menu, X, Twitter, Github, Linkedin } from "lucide-react";
-import heroImage from "@assets/landing-page_1763053460279.png";
+import heroImage from "@assets/generated_images/Black_white_green_fintech_phone_152b320e.png";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -38,8 +38,8 @@ function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg gradient-orange-teal flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-white" />
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold">Pefiy</span>
           </div>
@@ -53,7 +53,7 @@ function Navigation() {
             </a>
             <Button 
               size="default" 
-              className="gradient-orange-teal text-white border-0" 
+              variant="default"
               data-testid="button-join-nav"
               onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
             >
@@ -87,7 +87,8 @@ function Navigation() {
             </a>
             <Button 
               size="default" 
-              className="w-full gradient-orange-teal text-white border-0" 
+              variant="default"
+              className="w-full" 
               data-testid="button-join-mobile"
               onClick={() => {
                 setMobileMenuOpen(false);
@@ -106,7 +107,7 @@ function Navigation() {
 function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      <div className="absolute inset-0 gradient-radial"></div>
+      <div className="absolute inset-0 bg-background"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -139,7 +140,7 @@ function HeroSection() {
             >
               <Button 
                 size="lg" 
-                className="gradient-orange-teal text-white border-0"
+                variant="default"
                 data-testid="button-join-hero"
                 onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
               >
@@ -167,12 +168,12 @@ function HeroSection() {
             <div className="relative z-10">
               <img 
                 src={heroImage} 
-                alt="Financial growth illustration with 3D character viewing charts" 
-                className="w-full max-w-2xl mx-auto rounded-2xl drop-shadow-2xl"
+                alt="Pefiy app interface on modern smartphone showing financial dashboard with green accents" 
+                className="w-full max-w-md mx-auto drop-shadow-2xl"
                 data-testid="img-hero-mockup"
               />
             </div>
-            <div className="absolute inset-0 gradient-orange-teal opacity-15 blur-3xl"></div>
+            <div className="absolute inset-0 bg-primary/5 blur-3xl"></div>
           </motion.div>
         </div>
       </div>
@@ -227,9 +228,9 @@ function FeaturesSection() {
               variants={fadeUpVariants}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="p-6 glassmorphism h-full" data-testid={feature.testId}>
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg gradient-orange-teal mb-4">
-                  <feature.icon className="w-5 h-5 text-white" />
+              <Card className="p-6 bg-card border-border h-full" data-testid={feature.testId}>
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary mb-4">
+                  <feature.icon className="w-5 h-5 text-primary-foreground" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">
                   {feature.title}
@@ -293,7 +294,7 @@ function WaitlistSection() {
           variants={staggerContainer}
           className="max-w-4xl mx-auto"
         >
-          <Card className="p-8 md:p-12 glassmorphism text-center">
+          <Card className="p-8 md:p-12 bg-card border-border text-center">
             {!isSubmitted ? (
               <>
                 <motion.div variants={fadeUpVariants} transition={{ duration: 0.6 }}>
@@ -316,14 +317,14 @@ function WaitlistSection() {
                     placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 glassmorphism"
+                    className="flex-1 bg-input border-border"
                     required
                     data-testid="input-email-waitlist"
                   />
                   <Button 
                     type="submit"
                     size="lg"
-                    className="gradient-orange-teal text-white border-0"
+                    variant="default"
                     disabled={joinWaitlistMutation.isPending}
                     data-testid="button-submit-waitlist"
                   >
@@ -345,8 +346,8 @@ function WaitlistSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-orange-teal mb-6">
-                  <CheckCircle className="w-8 h-8 text-white" />
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary mb-6">
+                  <CheckCircle className="w-8 h-8 text-primary-foreground" />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">Thank you!</h3>
                 <p className="text-lg text-muted-foreground mb-6">
@@ -355,7 +356,7 @@ function WaitlistSection() {
                 <Button
                   variant="outline"
                   onClick={() => setIsSubmitted(false)}
-                  className="glassmorphism"
+                  className="bg-input border-border"
                   data-testid="button-close-success"
                 >
                   Close and explore
@@ -413,8 +414,8 @@ function Footer() {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-border/50">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded gradient-orange-teal flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-white" />
+            <div className="w-6 h-6 rounded bg-primary flex items-center justify-center">
+              <Sparkles className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="font-semibold">Pefiy</span>
           </div>

@@ -2,20 +2,22 @@
 
 ## Overview
 
-Pefiy is a modern web application designed to transform remittances into strategic crypto investments through AI-powered finance tools. The platform features a marketing landing page with a waitlist signup system, built with a warm, playful aesthetic featuring coral-orange and teal gradients, glassmorphism effects, and smooth animations. The design emphasizes approachability and optimism through 3D illustration-inspired visuals.
+Pefiy is a modern web application designed to transform remittances into strategic crypto investments through AI-powered finance tools. The platform features a marketing landing page with a waitlist signup system, built with a minimal black and white aesthetic featuring a neon green accent, inspired by Tuyo.com. The design emphasizes professionalism and clarity through high-contrast typography and clean, intentional design.
 
 The application uses a full-stack TypeScript architecture with React on the frontend and Express on the backend, designed to scale from a landing page to a comprehensive crypto finance platform.
 
 ## Recent Changes (January 2025)
 
-**Complete Rebranding to Warm, Playful Aesthetic:**
-- Color palette changed from purple-blue to coral-orange (hsl(12, 100%, 65%)) and teal (hsl(175, 50%, 55%))
-- Hero image replaced with 3D illustration showing character viewing financial charts and coins
-- All gradients updated from `gradient-purple-blue` to `gradient-orange-teal`
-- Chart colors updated to green (hsl(115, 45%, 55%)), golden yellow (hsl(40, 95%, 60%)), and teal accents
-- Design guidelines updated to reflect warm, friendly branding approach
-- All UI components (buttons, icons, success states) now use warm color palette
-- Glassmorphism shadows updated to warm teal/orange tints
+**Rebranding to Minimal Black & White with Neon Green (Tuyo-Inspired):**
+- Complete color palette pivot from coral-orange/teal to monochrome with green accent
+- Dark mode primary: Rich charcoal background (hsl(210, 20%, 4%)), white text, neon green (hsl(110, 72%, 56%))
+- Light mode alternative: White background, black text, same green accent
+- Hero image replaced with monochrome phone mockup showing dark app interface with green highlights
+- All gradient classes removed - replaced with solid `bg-primary` (neon green) styling
+- Feature cards updated from glassmorphism to matte black/white with subtle borders
+- Chart colors converted to grayscale with selective green highlights
+- Design guidelines completely rewritten for minimal, high-contrast aesthetic
+- Button styling simplified to solid green CTAs with dark text
 
 ## User Preferences
 
@@ -38,11 +40,12 @@ Preferred communication style: Simple, everyday language.
 - Custom design system based on Inter font family with gradient-first visual language
 
 **Design Philosophy:**
-The frontend follows a warm, playful 3D illustration aesthetic emphasizing:
-- Coral-orange to teal gradient overlays as primary visual anchors
-- Glassmorphism aesthetic with frosted glass effects (backdrop-blur-lg, bg-white/10)
+The frontend follows a minimal black & white aesthetic inspired by Tuyo.com, emphasizing:
+- Monochrome foundation (black/white/gray) with single neon green accent
+- High-contrast typography for maximum readability
+- Matte card surfaces with subtle borders instead of glassmorphism
 - Motion-enhanced experience with fade-up and slide-up animations on viewport entry
-- Warm, approachable color palette making finance feel friendly and optimistic
+- Dark-first design optimized for professional fintech aesthetic
 - Mobile-first responsive design with consistent spacing primitives
 - Component-based architecture with reusable UI primitives from shadcn/ui
 
@@ -148,7 +151,7 @@ The frontend follows a warm, playful 3D illustration aesthetic emphasizing:
 
 **Asset Management:**
 - Images stored in attached_assets/ directory
-- Hero image: 3D illustration (landing-page_1763053460279.png) featuring character with financial charts
+- Hero image: Monochrome phone mockup (Black_white_green_fintech_phone_152b320e.png) showing dark app UI with green accents
 - Vite alias (@assets) for importing static assets
 - Path aliases configured: @/ (client/src), @shared/ (shared), @assets/ (attached_assets)
 

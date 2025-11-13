@@ -1,21 +1,40 @@
-# Pefiy Design Guidelines - Warm & Playful 3D Aesthetic
+# Pefiy Design Guidelines - Minimal Black & White with Neon Green
 
 ## Design Approach
-**Warm, Approachable Branding**: Featuring a vibrant coral-orange and teal color palette inspired by friendly 3D illustrations. The design emphasizes accessibility, growth, and optimism through warm gradients, playful imagery, and smooth animations.
+**Minimal, High-Impact Branding**: Inspired by Tuyo.com, featuring a sophisticated black and white color palette with strategic neon green accents. The design emphasizes clarity, focus, and professionalism through high contrast, minimal color usage, and clean typography.
 
 ## Core Design Principles
-- **Warm Gradient System**: Coral-orange to teal gradients as primary visual anchors
-- **Glassmorphism Aesthetic**: Frosted glass effects with subtle blur and transparency
-- **Motion-Enhanced Experience**: Smooth scroll-triggered animations throughout
-- **Playful Yet Professional**: 3D illustration aesthetic with clean layouts
+- **Monochrome Foundation**: Rich blacks and pure whites as primary canvas
+- **Strategic Color Accent**: Single neon green color for CTAs, success states, and key interactions
+- **High Contrast Typography**: Bold headlines with excellent readability
+- **Minimal Visual Noise**: Clean layouts with intentional whitespace
+- **Dark-First Design**: Optimized for dark mode with elegant light mode alternative
 - **Mobile-First Responsiveness**: Seamless adaptation across all devices
 
 ## Color Palette
-- **Primary (Coral Orange)**: hsl(12, 100%, 65%) - Main CTAs, brand accents
-- **Secondary (Teal)**: hsl(175, 50%, 55%) - Supporting elements, secondary CTAs
-- **Chart Green**: hsl(115, 45%, 55%) - Success states, positive growth
-- **Golden Yellow**: hsl(40, 95%, 60%) - Highlights, achievements, coins
-- **Accent Teal Light**: hsl(175, 55%, 92%) - Soft backgrounds, hover states
+
+### Dark Mode (Primary)
+- **Background**: hsl(210, 20%, 4%) - Rich charcoal, nearly black
+- **Foreground**: hsl(0, 0%, 98%) - Soft white for text
+- **Card**: hsl(0, 0%, 8%) - Matte black cards
+- **Primary (Neon Green)**: hsl(110, 72%, 56%) - CTAs, accents, success
+- **Muted Text**: hsl(0, 0%, 64%) - Secondary information
+- **Borders**: hsl(0, 0%, 16%) - Subtle separation
+
+### Light Mode (Alternative)
+- **Background**: hsl(0, 0%, 100%) - Pure white
+- **Foreground**: hsl(0, 0%, 9%) - Deep black for text
+- **Card**: hsl(0, 0%, 98%) - Subtle gray cards
+- **Primary (Neon Green)**: hsl(110, 72%, 56%) - CTAs, accents, success
+- **Muted Text**: hsl(0, 0%, 46%) - Secondary information
+- **Borders**: hsl(0, 0%, 90%) - Subtle separation
+
+### Chart Colors (Grayscale + Green)
+- **Chart 1**: hsl(0, 0%, 40%) - Dark gray
+- **Chart 2**: hsl(0, 0%, 60%) - Medium gray
+- **Chart 3**: hsl(0, 0%, 80%) - Light gray
+- **Chart 4**: hsl(110, 72%, 56%) - Neon green (highlight)
+- **Chart 5**: hsl(0, 0%, 70%) - Mid gray
 
 ## Typography System
 **Font Family**: Inter (via Google Fonts CDN)
@@ -36,11 +55,11 @@
 ## Component Library
 
 ### Hero Section
-- **Full viewport height** (min-h-screen) with animated gradient background
+- **Full viewport height** (min-h-screen) with dark background
 - **Centered content** with max-w-4xl headline and subtext
-- **Primary CTA button**: "Join Waitlist" with warm orange-teal gradient
-- **Hero image**: 3D illustration showing financial growth with playful character, charts, and coins
-- **Gradient overlay**: Coral Orange to Teal diagonal gradient (135deg)
+- **Primary CTA button**: "Join Waitlist" with neon green background
+- **Hero mockup**: Modern phone showing app interface with black theme and green accents
+- **Subtle glow**: Minimal green radial blur effect (5% opacity, optional)
 - **Entrance animations**: Fade-up on all elements with staggered delays (0.2s, 0.4s, 0.6s)
 
 ### Navigation
@@ -49,18 +68,18 @@
 - **Mobile hamburger menu** with slide-in drawer animation
 - **Sticky behavior** on scroll with subtle shadow transition
 
-### Feature Sections (4-6 sections recommended)
-- **Two-column layouts** alternating image-text placement per section
-- **Glassmorphism cards**: bg-white/10 backdrop-blur-md with border border-white/20
-- **Icon integration**: Use Heroicons (outline style) at 32x32 or 48x48 size
+### Feature Sections
+- **Single row of 4 cards** displaying key features in compact format
+- **Matte cards**: Solid bg-card backgrounds with border-border for separation
+- **Icon integration**: Lucide icons in neon green containers at 20x20 size
 - **Scroll animations**: Fade-in and slide-up on viewport entry
-- **Image placeholders**: Mockup screenshots, abstract illustrations, or gradient shapes
+- **Image placeholders**: Mockup screenshots, minimalist icons, or solid shapes
 
 ### Waitlist Form
-- **Inline email input** with rounded-full styling
-- **Gradient submit button** matching hero CTA
-- **Success state**: Modal or inline message with checkmark animation
-- **Glassmorphism container** with backdrop-blur-xl
+- **Inline email input** with standard rounded styling
+- **Solid green submit button** with high contrast dark text
+- **Success state**: Inline message with checkmark icon in green circle
+- **Matte card container** with solid bg-card and subtle border
 
 ### Footer
 - **Multi-column layout**: 4 columns on desktop (Company, Product, Resources, Social)
@@ -68,11 +87,11 @@
 - **Social icons**: Heroicons with hover scale transform
 - **Bottom bar**: Copyright and legal links
 
-## Glassmorphism Implementation
-- **Background**: bg-white/10 or bg-black/5 depending on context
-- **Backdrop blur**: backdrop-blur-md to backdrop-blur-xl
-- **Borders**: border border-white/20 or border-gray-200/30
-- **Shadows**: shadow-lg with warm teal/orange tints for depth
+## Card & Surface Treatment
+- **Feature cards**: Solid matte black (dark mode) or white (light mode) backgrounds
+- **Borders**: Subtle 1px borders in matching theme color
+- **Shadows**: Minimal or none - rely on borders for separation
+- **No glassmorphism**: Clean, flat surfaces with clear boundaries
 - **Apply to**: Feature cards, navigation, modals, input fields
 
 ## Animation Strategy (Framer Motion)
@@ -85,15 +104,17 @@
 
 ## Images
 **Hero Section**:
-- **Primary Hero Image**: 3D illustration (1920x1280px) showing playful character viewing financial charts and coins
-- Features warm, friendly aesthetic with coral-orange character and teal/green/golden accents
-- Rounded corners (rounded-2xl) with warm drop shadows
+- **Phone Mockup**: Modern smartphone (3:4 aspect ratio) showing app interface
+- **Screen Content**: Dark theme with black background, white text, green accents
+- **Style**: Realistic 3D render with subtle shadows, clean product photography aesthetic
+- **Presentation**: Floating on dark background with minimal green glow
 
 **Feature Cards**:
-- Use simple icons with gradient backgrounds (orange-teal gradient)
-- Keep visuals clean and focused on clarity
+- Use simple icons with neon green backgrounds
+- Icons rendered in dark color (nearly black) for maximum contrast
+- Keep visuals minimal and focused on clarity
 
-All images should have rounded corners and warm-tinted shadow effects matching the brand palette.
+All images maintain high contrast and avoid unnecessary color to preserve the monochrome aesthetic.
 
 ## Responsive Breakpoints
 - **Mobile**: Base styles, single column layouts
@@ -102,14 +123,15 @@ All images should have rounded corners and warm-tinted shadow effects matching t
 - **Large Desktop** (xl: 1280px): Contained max-width with centered content
 
 ## Button Specifications
-- **Primary CTA**: Gradient background (coral-orange to teal), white text, with warm vibrant feel
-- **Secondary CTA**: Teal secondary color with white text
-- **Hover states**: Built-in scale transform (hover:scale-105) and brightness increase
+- **Primary CTA**: Neon green background (hsl(110, 72%, 56%)), dark text, high contrast
+- **Secondary CTA**: Black or white with subtle borders
+- **Hover states**: Built-in elevation and brightness adjustments
 - **No manual hover styling needed**: Use component's default hover/active states
+- **Focus**: Green ring for keyboard navigation
 
 ## Grid Systems
 - **Feature grids**: grid-cols-1 md:grid-cols-2 lg:grid-cols-3 with gap-8
 - **Testimonial cards**: grid-cols-1 md:grid-cols-2 with gap-6
 - **Footer columns**: grid-cols-2 md:grid-cols-4 with gap-8
 
-This design creates a warm, approachable crypto finance experience with friendly 3D illustrations, coral-orange to teal gradients, glassmorphism depth, and smooth animations throughout. The playful yet professional aesthetic makes complex financial concepts feel accessible and optimistic.
+This design creates a sophisticated, minimal crypto finance experience with a monochrome foundation and strategic neon green accents. The high-contrast, clean aesthetic emphasizes professionalism and clarity while maintaining visual interest through bold typography and intentional color usage.
