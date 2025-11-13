@@ -110,12 +110,12 @@ function HeroSection() {
       <div className="absolute inset-0 bg-background"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="text-center lg:text-left"
+            className="flex-1 w-full text-center lg:text-left"
           >
             <motion.h1 
               variants={fadeUpVariants}
@@ -163,13 +163,13 @@ function HeroSection() {
             initial={{ opacity: 0, scale: 0.9, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
+            className="flex-1 w-full relative"
           >
             <div className="relative z-10">
               <img 
                 src={heroImage} 
                 alt="Pefiy app interface on modern smartphone showing financial dashboard with green accents" 
-                className="w-full max-w-md mx-auto drop-shadow-2xl"
+                className="w-full max-w-md mx-auto lg:ml-auto lg:mr-0 drop-shadow-2xl"
                 data-testid="img-hero-mockup"
               />
             </div>
