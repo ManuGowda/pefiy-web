@@ -233,7 +233,7 @@ function HeroSection() {
               <img 
                 src={heroImage} 
                 alt="3D character viewing financial charts and analytics" 
-                className="w-full max-w-2xl mx-auto lg:ml-auto lg:mr-0 opacity-90 dark:opacity-80 mix-blend-luminosity dark:mix-blend-normal"
+                className="w-full max-w-2xl mx-auto lg:ml-auto lg:mr-0 opacity-90 dark:opacity-80 mix-blend-luminosity dark:mix-blend-normal rounded-2xl"
                 data-testid="img-hero-mockup"
               />
             </div>
