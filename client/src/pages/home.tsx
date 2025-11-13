@@ -1,10 +1,10 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Sparkles, Shield, TrendingUp, Zap, CheckCircle, Menu, X, Twitter, Github, Linkedin } from "lucide-react";
-import heroImage from "@assets/generated_images/Black_white_green_fintech_phone_152b320e.png";
+import { Sparkles, Shield, TrendingUp, Zap, CheckCircle, Menu, X, Twitter, Github, Linkedin, Moon, Sun } from "lucide-react";
+import heroImage from "@assets/landing page_1763055675446.png";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -27,6 +27,41 @@ const staggerContainer = {
 
 function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
+  useEffect(() => {
+    // Check system preference
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+    
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+    } else {
+      const systemTheme = mediaQuery.matches ? 'dark' : 'light';
+      setTheme(systemTheme);
+      document.documentElement.classList.toggle('dark', systemTheme === 'dark');
+    }
+
+    // Listen for system theme changes
+    const handleChange = (e: MediaQueryListEvent) => {
+      if (!localStorage.getItem('theme')) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        setTheme(newTheme);
+        document.documentElement.classList.toggle('dark', newTheme === 'dark');
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+  };
 
   return (
     <motion.nav 
@@ -51,6 +86,18 @@ function Navigation() {
             <a href="#waitlist" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-waitlist">
               Waitlist
             </a>
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover-elevate active-elevate-2"
+              aria-label="Toggle theme"
+              data-testid="button-theme-toggle"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </button>
             <Button 
               size="default" 
               variant="default"
@@ -85,6 +132,23 @@ function Navigation() {
             <a href="#waitlist" className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-waitlist-mobile">
               Waitlist
             </a>
+            <button
+              onClick={toggleTheme}
+              className="w-full p-3 rounded-lg hover-elevate active-elevate-2 flex items-center justify-center gap-2"
+              data-testid="button-theme-toggle-mobile"
+            >
+              {theme === 'dark' ? (
+                <>
+                  <Sun className="w-5 h-5" />
+                  <span className="text-sm font-medium">Light Mode</span>
+                </>
+              ) : (
+                <>
+                  <Moon className="w-5 h-5" />
+                  <span className="text-sm font-medium">Dark Mode</span>
+                </>
+              )}
+            </button>
             <Button 
               size="default" 
               variant="default"
@@ -92,8 +156,8 @@ function Navigation() {
               data-testid="button-join-mobile"
               onClick={() => {
                 setMobileMenuOpen(false);
-                document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+                document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+              }
             >
               Join Waitlist
             </Button>
@@ -168,12 +232,12 @@ function HeroSection() {
             <div className="relative z-10">
               <img 
                 src={heroImage} 
-                alt="Pefiy app interface on modern smartphone showing financial dashboard with green accents" 
-                className="w-full max-w-md mx-auto lg:ml-auto lg:mr-0 drop-shadow-2xl"
+                alt="3D character viewing financial charts and analytics" 
+                className="w-full max-w-2xl mx-auto lg:ml-auto lg:mr-0 opacity-90 dark:opacity-80 mix-blend-luminosity dark:mix-blend-normal"
                 data-testid="img-hero-mockup"
               />
             </div>
-            <div className="absolute inset-0 bg-primary/5 blur-3xl"></div>
+            <div className="absolute inset-0 bg-primary/3 blur-3xl"></div>
           </motion.div>
         </div>
       </div>
