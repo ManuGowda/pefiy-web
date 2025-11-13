@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
@@ -21,6 +22,7 @@ const staggerContainer = {
 
 const blogPosts = [
   {
+    slug: "intelligent-wallet",
     date: "MAY 7, 2025",
     category: "INDUSTRY",
     tags: ["PEFIY NEWS"],
@@ -28,6 +30,7 @@ const blogPosts = [
     description: "The industry's first intelligent wallet is here: introducing an AI-powered experience that redefines how you interact with web3. Unlike traditional or even smart contract wallets, Pefiy's intelligent wallet is designed to respond to chat-based prompts, understand context, and evolve with you, all while maintaining full control and security.",
   },
   {
+    slug: "rewards-program",
     date: "APRIL 15, 2025",
     category: "FEATURES",
     tags: ["REWARDS"],
@@ -35,6 +38,7 @@ const blogPosts = [
     description: "We're excited to announce the launch of our new rewards program, designed to give you even more value for using Pefiy. Earn points on every transaction, which can be redeemed for premium features, higher APY rates, and exclusive benefits.",
   },
   {
+    slug: "crypto-investments-beginners",
     date: "MARCH 22, 2025",
     category: "EDUCATION",
     tags: ["CRYPTO"],
@@ -73,12 +77,12 @@ export default function Blogs() {
             className="space-y-8"
           >
             {blogPosts.map((post, index) => (
-              <motion.article
-                key={index}
-                variants={fadeUpVariants}
-                className="border border-border/50 rounded-3xl p-8 md:p-12 hover-elevate active-elevate-2 cursor-pointer transition-all"
-                data-testid={`blog-card-${index}`}
-              >
+              <Link key={index} href={`/blog/${post.slug}`}>
+                <motion.article
+                  variants={fadeUpVariants}
+                  className="border border-border/50 rounded-3xl p-8 md:p-12 hover-elevate active-elevate-2 cursor-pointer transition-all"
+                  data-testid={`blog-card-${index}`}
+                >
                 <div className="flex flex-col lg:flex-row gap-8 items-start">
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -111,6 +115,7 @@ export default function Blogs() {
                   </div>
                 </div>
               </motion.article>
+              </Link>
             ))}
           </motion.div>
         </div>

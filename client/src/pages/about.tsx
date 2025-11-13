@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
 import { Sparkles, Target, Users, Zap } from "lucide-react";
 
 const fadeUpVariants = {
@@ -113,16 +114,24 @@ export default function About() {
               variants={fadeUpVariants}
               className="border border-border/50 rounded-2xl p-8 bg-card/50"
             >
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col md:flex-row items-start gap-6">
                 <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
                   <Sparkles className="w-5 h-5 text-primary-foreground" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="text-xl font-semibold mb-2">Join Us on Our Journey</h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground mb-4">
                     We're just getting started, and we'd love for you to be part of the Pefiy story. 
                     Join our waitlist today to be among the first to experience the future of financial technology.
                   </p>
+                  <Button 
+                    size="lg"
+                    variant="default"
+                    onClick={() => window.location.href = '/#waitlist'}
+                    data-testid="button-join-about"
+                  >
+                    Join the Waitlist
+                  </Button>
                 </div>
               </div>
             </motion.div>

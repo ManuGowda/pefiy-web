@@ -67,7 +67,7 @@ function TypewriterText() {
   return (
     <span className="inline-block min-w-[200px] text-left text-primary">
       {currentText}
-      <span className="animate-pulse">|</span>
+      <span className="animate-pulse inline-block w-[3px] h-[0.8em] bg-primary ml-1 align-middle"></span>
     </span>
   );
 }

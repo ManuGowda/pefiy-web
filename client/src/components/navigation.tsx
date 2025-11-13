@@ -43,9 +43,15 @@ export function Navigation() {
   };
 
   const scrollToWaitlist = () => {
-    const waitlistElement = document.getElementById('waitlist');
-    if (waitlistElement) {
-      waitlistElement.scrollIntoView({ behavior: 'smooth' });
+    // Check if we're on the home page
+    if (window.location.pathname === '/') {
+      const waitlistElement = document.getElementById('waitlist');
+      if (waitlistElement) {
+        waitlistElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to home page with hash
+      window.location.href = '/#waitlist';
     }
   };
 
