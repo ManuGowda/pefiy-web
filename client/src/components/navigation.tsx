@@ -55,10 +55,10 @@ export function Navigation() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-background/80 border-b border-border/50"
+      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-5xl mx-auto backdrop-blur-xl bg-background/60 border border-border/50 rounded-full shadow-lg">
+        <div className="flex items-center justify-between h-14 px-6">
           <Link href="/">
             <a className="flex items-center gap-2" data-testid="link-logo">
               <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
@@ -99,16 +99,15 @@ export function Navigation() {
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </div>
-
-      {mobileMenuOpen && (
-        <motion.div 
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden border-t border-border/50 bg-background"
-        >
-          <div className="px-4 py-4 space-y-3">
+      
+        {mobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden mt-2 backdrop-blur-xl bg-background/60 border border-border/50 rounded-3xl overflow-hidden"
+          >
+            <div className="px-4 py-4 space-y-3">
             <button
               onClick={toggleTheme}
               className="w-full p-3 rounded-lg hover-elevate active-elevate-2 flex items-center justify-center gap-2"
@@ -135,9 +134,10 @@ export function Navigation() {
             >
               Join Waitlist
             </Button>
-          </div>
-        </motion.div>
-      )}
+            </div>
+          </motion.div>
+        )}
+      </div>
     </motion.nav>
   );
 }
