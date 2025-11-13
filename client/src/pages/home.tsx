@@ -49,16 +49,21 @@ function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-features">
               Features
             </a>
-            <a href="#security" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#security" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-security">
               Security
             </a>
-            <a href="#waitlist" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#waitlist" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-waitlist">
               Waitlist
             </a>
-            <Button size="default" className="gradient-purple-blue text-white border-0" data-testid="button-join-nav">
+            <Button 
+              size="default" 
+              className="gradient-purple-blue text-white border-0" 
+              data-testid="button-join-nav"
+              onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Join Waitlist
             </Button>
           </div>
@@ -81,16 +86,24 @@ function Navigation() {
           className="md:hidden border-t border-border/50 bg-background"
         >
           <div className="px-4 py-4 space-y-3">
-            <a href="#features" className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#features" className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-features-mobile">
               Features
             </a>
-            <a href="#security" className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#security" className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-security-mobile">
               Security
             </a>
-            <a href="#waitlist" className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#waitlist" className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-waitlist-mobile">
               Waitlist
             </a>
-            <Button size="default" className="w-full gradient-purple-blue text-white border-0" data-testid="button-join-mobile">
+            <Button 
+              size="default" 
+              className="w-full gradient-purple-blue text-white border-0" 
+              data-testid="button-join-mobile"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Join Waitlist
             </Button>
           </div>
@@ -137,8 +150,9 @@ function HeroSection() {
             >
               <Button 
                 size="lg" 
-                className="gradient-purple-blue text-white border-0 text-lg px-8 py-6"
+                className="gradient-purple-blue text-white border-0"
                 data-testid="button-join-hero"
+                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Join Waitlist
                 <Sparkles className="ml-2 w-5 h-5" />
@@ -146,8 +160,9 @@ function HeroSection() {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="glassmorphism text-lg px-8 py-6"
+                className="glassmorphism"
                 data-testid="button-learn-more"
+                onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Learn More
               </Button>
@@ -348,14 +363,14 @@ function WaitlistSection() {
                     placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 h-12 px-6 glassmorphism"
+                    className="flex-1 glassmorphism"
                     required
                     data-testid="input-email-waitlist"
                   />
                   <Button 
                     type="submit"
                     size="lg"
-                    className="gradient-purple-blue text-white border-0 px-8"
+                    className="gradient-purple-blue text-white border-0"
                     disabled={joinWaitlistMutation.isPending}
                     data-testid="button-submit-waitlist"
                   >
@@ -409,36 +424,36 @@ function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Product</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#features" className="hover:text-foreground transition-colors">Features</a></li>
-              <li><a href="#security" className="hover:text-foreground transition-colors">Security</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Pricing</a></li>
+              <li><a href="#features" className="hover:text-foreground transition-colors" data-testid="link-footer-features">Features</a></li>
+              <li><a href="#security" className="hover:text-foreground transition-colors" data-testid="link-footer-security">Security</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-footer-pricing">Pricing</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Careers</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-footer-about">About</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-footer-blog">Blog</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-footer-careers">Careers</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4">Resources</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Documentation</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Community</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-footer-docs">Documentation</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-footer-help">Help Center</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-footer-community">Community</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Privacy</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Terms</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Cookie Policy</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-footer-privacy">Privacy</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-footer-terms">Terms</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-footer-cookies">Cookie Policy</a></li>
             </ul>
           </div>
         </div>
