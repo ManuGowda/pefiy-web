@@ -13,15 +13,12 @@ export function Footer() {
           </div>
 
           <p className="text-sm text-muted-foreground">
-            © 2024 Pefiy. All rights reserved.
+            © 2025 Pefiy. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4">
             <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="link-twitter">
               <Twitter className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="link-github">
-              <Github className="w-5 h-5" />
             </a>
             <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="link-linkedin">
               <Linkedin className="w-5 h-5" />

@@ -108,7 +108,7 @@ export function Navigation() {
                   exit={{ opacity: 0, y: -10 }}
                   className="absolute right-0 mt-2 w-48 backdrop-blur-xl bg-background/90 border border-border/50 rounded-2xl shadow-lg overflow-hidden"
                 >
-                  <div className="py-2">
+                  <div>
                     <Link href="/about">
                       <div 
                         className="block px-4 py-3 text-sm hover-elevate active-elevate-2 transition-colors cursor-pointer"
@@ -128,7 +128,7 @@ export function Navigation() {
                       </div>
                     </Link>
                     
-                    <div className="md:hidden border-t border-border/50 mt-2 pt-2">
+                    <div className="md:hidden">
                       <button
                         onClick={() => {
                           scrollToWaitlist();
