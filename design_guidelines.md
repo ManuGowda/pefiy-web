@@ -1,14 +1,21 @@
-# Pefiy Design Guidelines - Pass.app Inspired
+# Pefiy Design Guidelines - Warm & Playful 3D Aesthetic
 
 ## Design Approach
-**Reference-Based Approach**: Drawing inspiration from Pass.app's modern crypto wallet interface, characterized by vibrant gradients, glassmorphism effects, and smooth animations. The design emphasizes clarity, trust, and technological sophistication.
+**Warm, Approachable Branding**: Featuring a vibrant coral-orange and teal color palette inspired by friendly 3D illustrations. The design emphasizes accessibility, growth, and optimism through warm gradients, playful imagery, and smooth animations.
 
 ## Core Design Principles
-- **Gradient-First Visual Language**: Purple-to-blue gradients as primary visual anchors
+- **Warm Gradient System**: Coral-orange to teal gradients as primary visual anchors
 - **Glassmorphism Aesthetic**: Frosted glass effects with subtle blur and transparency
 - **Motion-Enhanced Experience**: Smooth scroll-triggered animations throughout
-- **Trust Through Clarity**: Clean layouts with generous whitespace
+- **Playful Yet Professional**: 3D illustration aesthetic with clean layouts
 - **Mobile-First Responsiveness**: Seamless adaptation across all devices
+
+## Color Palette
+- **Primary (Coral Orange)**: hsl(12, 100%, 65%) - Main CTAs, brand accents
+- **Secondary (Teal)**: hsl(175, 50%, 55%) - Supporting elements, secondary CTAs
+- **Chart Green**: hsl(115, 45%, 55%) - Success states, positive growth
+- **Golden Yellow**: hsl(40, 95%, 60%) - Highlights, achievements, coins
+- **Accent Teal Light**: hsl(175, 55%, 92%) - Soft backgrounds, hover states
 
 ## Typography System
 **Font Family**: Inter (via Google Fonts CDN)
@@ -31,9 +38,9 @@
 ### Hero Section
 - **Full viewport height** (min-h-screen) with animated gradient background
 - **Centered content** with max-w-4xl headline and subtext
-- **Dual CTA buttons**: "Join Waitlist" (primary gradient) + secondary action
-- **Hero mockup image**: Large phone/app mockup positioned center or right-aligned, floating with subtle parallax
-- **Gradient overlay**: Purple (#8B5CF6) to Blue (#3B82F6) diagonal gradient
+- **Primary CTA button**: "Join Waitlist" with warm orange-teal gradient
+- **Hero image**: 3D illustration showing financial growth with playful character, charts, and coins
+- **Gradient overlay**: Coral Orange to Teal diagonal gradient (135deg)
 - **Entrance animations**: Fade-up on all elements with staggered delays (0.2s, 0.4s, 0.6s)
 
 ### Navigation
@@ -65,7 +72,7 @@
 - **Background**: bg-white/10 or bg-black/5 depending on context
 - **Backdrop blur**: backdrop-blur-md to backdrop-blur-xl
 - **Borders**: border border-white/20 or border-gray-200/30
-- **Shadows**: shadow-lg shadow-purple-500/10 for depth
+- **Shadows**: shadow-lg with warm teal/orange tints for depth
 - **Apply to**: Feature cards, navigation, modals, input fields
 
 ## Animation Strategy (Framer Motion)
@@ -77,14 +84,16 @@
 - **Parallax effect**: Subtle transform on hero mockup image (0.3x scroll speed)
 
 ## Images
-**Critical Image Placements**:
-1. **Hero Section**: Large phone/app mockup (800x1600px) showing app interface, floating with drop shadow and subtle glow
-2. **Feature Section 1**: Dashboard/analytics mockup (1200x800px)
-3. **Feature Section 2**: Transaction/chat interface mockup (1000x1200px)
-4. **Feature Section 3**: Security/protection visual (1200x800px)
-5. **Feature Section 4**: Rewards/perks interface mockup (1000x1200px)
+**Hero Section**:
+- **Primary Hero Image**: 3D illustration (1920x1280px) showing playful character viewing financial charts and coins
+- Features warm, friendly aesthetic with coral-orange character and teal/green/golden accents
+- Rounded corners (rounded-2xl) with warm drop shadows
 
-All images should have rounded corners (rounded-2xl or rounded-3xl) and subtle shadow effects.
+**Feature Cards**:
+- Use simple icons with gradient backgrounds (orange-teal gradient)
+- Keep visuals clean and focused on clarity
+
+All images should have rounded corners and warm-tinted shadow effects matching the brand palette.
 
 ## Responsive Breakpoints
 - **Mobile**: Base styles, single column layouts
@@ -93,8 +102,8 @@ All images should have rounded corners (rounded-2xl or rounded-3xl) and subtle s
 - **Large Desktop** (xl: 1280px): Contained max-width with centered content
 
 ## Button Specifications
-- **Primary CTA**: Gradient background (purple-to-blue), white text, rounded-full, with backdrop-blur on hero overlays
-- **Secondary CTA**: Transparent with white border, white text, backdrop-blur-md
+- **Primary CTA**: Gradient background (coral-orange to teal), white text, with warm vibrant feel
+- **Secondary CTA**: Teal secondary color with white text
 - **Hover states**: Built-in scale transform (hover:scale-105) and brightness increase
 - **No manual hover styling needed**: Use component's default hover/active states
 
@@ -103,4 +112,4 @@ All images should have rounded corners (rounded-2xl or rounded-3xl) and subtle s
 - **Testimonial cards**: grid-cols-1 md:grid-cols-2 with gap-6
 - **Footer columns**: grid-cols-2 md:grid-cols-4 with gap-8
 
-This design creates a premium, modern crypto wallet experience with Pass.app's signature gradient aesthetic, glassmorphism depth, and smooth animations throughout.
+This design creates a warm, approachable crypto finance experience with friendly 3D illustrations, coral-orange to teal gradients, glassmorphism depth, and smooth animations throughout. The playful yet professional aesthetic makes complex financial concepts feel accessible and optimistic.

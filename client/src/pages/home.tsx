@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Sparkles, Shield, TrendingUp, Zap, CheckCircle, Menu, X, Twitter, Github, Linkedin } from "lucide-react";
-import heroMockup from "@assets/generated_images/Hero_phone_mockup_interface_9353f421.png";
+import heroImage from "@assets/landing-page_1763053460279.png";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -38,7 +38,7 @@ function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg gradient-purple-blue flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg gradient-orange-teal flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold">Pefiy</span>
@@ -53,7 +53,7 @@ function Navigation() {
             </a>
             <Button 
               size="default" 
-              className="gradient-purple-blue text-white border-0" 
+              className="gradient-orange-teal text-white border-0" 
               data-testid="button-join-nav"
               onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
             >
@@ -87,7 +87,7 @@ function Navigation() {
             </a>
             <Button 
               size="default" 
-              className="w-full gradient-purple-blue text-white border-0" 
+              className="w-full gradient-orange-teal text-white border-0" 
               data-testid="button-join-mobile"
               onClick={() => {
                 setMobileMenuOpen(false);
@@ -139,7 +139,7 @@ function HeroSection() {
             >
               <Button 
                 size="lg" 
-                className="gradient-purple-blue text-white border-0"
+                className="gradient-orange-teal text-white border-0"
                 data-testid="button-join-hero"
                 onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
               >
@@ -166,13 +166,13 @@ function HeroSection() {
           >
             <div className="relative z-10">
               <img 
-                src={heroMockup} 
-                alt="Pefiy app interface" 
-                className="w-full max-w-md mx-auto drop-shadow-2xl"
+                src={heroImage} 
+                alt="Financial growth illustration with 3D character viewing charts" 
+                className="w-full max-w-2xl mx-auto rounded-2xl drop-shadow-2xl"
                 data-testid="img-hero-mockup"
               />
             </div>
-            <div className="absolute inset-0 gradient-purple-blue opacity-20 blur-3xl"></div>
+            <div className="absolute inset-0 gradient-orange-teal opacity-15 blur-3xl"></div>
           </motion.div>
         </div>
       </div>
@@ -228,7 +228,7 @@ function FeaturesSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="p-6 glassmorphism h-full" data-testid={feature.testId}>
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg gradient-purple-blue mb-4">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg gradient-orange-teal mb-4">
                   <feature.icon className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">
@@ -323,7 +323,7 @@ function WaitlistSection() {
                   <Button 
                     type="submit"
                     size="lg"
-                    className="gradient-purple-blue text-white border-0"
+                    className="gradient-orange-teal text-white border-0"
                     disabled={joinWaitlistMutation.isPending}
                     data-testid="button-submit-waitlist"
                   >
@@ -345,7 +345,7 @@ function WaitlistSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-purple-blue mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-orange-teal mb-6">
                   <CheckCircle className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">Thank you!</h3>
@@ -413,7 +413,7 @@ function Footer() {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-border/50">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded gradient-purple-blue flex items-center justify-center">
+            <div className="w-6 h-6 rounded gradient-orange-teal flex items-center justify-center">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <span className="font-semibold">Pefiy</span>
