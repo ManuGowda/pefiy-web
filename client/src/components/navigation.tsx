@@ -6,6 +6,7 @@ import { Sparkles, Menu, X, Moon, Sun } from "lucide-react";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
@@ -60,44 +61,85 @@ export function Navigation() {
       <div className="w-[95%] max-w-7xl mx-auto backdrop-blur-xl bg-background/60 border border-border/50 rounded-full shadow-lg">
         <div className="flex items-center justify-between h-14 px-6">
           <Link href="/">
-            <a className="flex items-center gap-2" data-testid="link-logo">
+            <div className="flex items-center gap-2 cursor-pointer" data-testid="link-logo">
               <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-primary-foreground" />
               </div>
               <span className="text-xl font-bold">Pefiy</span>
-            </a>
+            </div>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover-elevate active-elevate-2"
-              aria-label="Toggle theme"
-              data-testid="button-theme-toggle"
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </button>
-            <Button 
-              size="default" 
-              variant="default"
-              data-testid="button-join-nav"
-              onClick={scrollToWaitlist}
-            >
-              Join Waitlist
-            </Button>
-          </div>
+          <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-6">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg hover-elevate active-elevate-2"
+                aria-label="Toggle theme"
+                data-testid="button-theme-toggle"
+              >
+                {theme === 'dark' ? (
+                  <Sun className="w-5 h-5" />
+                ) : (
+                  <Moon className="w-5 h-5" />
+                )}
+              </button>
+              <Button 
+                size="default" 
+                variant="default"
+                data-testid="button-join-nav"
+                onClick={scrollToWaitlist}
+              >
+                Join Waitlist
+              </Button>
+            </div>
 
-          <button 
-            className="md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            data-testid="button-menu-toggle"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            <button 
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              data-testid="button-menu-toggle"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+
+            <div className="relative">
+              <button 
+                onClick={() => setBurgerMenuOpen(!burgerMenuOpen)}
+                className="p-2 rounded-lg hover-elevate active-elevate-2"
+                data-testid="button-burger-menu"
+              >
+                <Menu className="w-5 h-5" />
+              </button>
+
+              {burgerMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="absolute right-0 mt-2 w-48 backdrop-blur-xl bg-background/60 border border-border/50 rounded-2xl shadow-lg overflow-hidden"
+                >
+                  <div className="py-2">
+                    <a 
+                      href="#about" 
+                      className="block px-4 py-3 text-sm hover-elevate active-elevate-2 transition-colors"
+                      data-testid="link-about"
+                      onClick={() => setBurgerMenuOpen(false)}
+                    >
+                      About
+                    </a>
+                    <Link href="/blogs">
+                      <div 
+                        className="block px-4 py-3 text-sm hover-elevate active-elevate-2 transition-colors cursor-pointer"
+                        data-testid="link-blog"
+                        onClick={() => setBurgerMenuOpen(false)}
+                      >
+                        Blog
+                      </div>
+                    </Link>
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          </div>
         </div>
       
         {mobileMenuOpen && (
