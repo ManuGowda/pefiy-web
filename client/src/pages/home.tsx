@@ -80,12 +80,6 @@ function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-features">
-              Features
-            </a>
-            <a href="#waitlist" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-waitlist">
-              Waitlist
-            </a>
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg hover-elevate active-elevate-2"
@@ -126,12 +120,6 @@ function Navigation() {
           className="md:hidden border-t border-border/50 bg-background"
         >
           <div className="px-4 py-4 space-y-3">
-            <a href="#features" className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-features-mobile">
-              Features
-            </a>
-            <a href="#waitlist" className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-waitlist-mobile">
-              Waitlist
-            </a>
             <button
               onClick={toggleTheme}
               className="w-full p-3 rounded-lg hover-elevate active-elevate-2 flex items-center justify-center gap-2"
