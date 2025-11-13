@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -157,6 +157,50 @@ function Navigation() {
   );
 }
 
+function TypewriterText() {
+  const words = useMemo(() => ['money', 'learn', 'community'], []);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentWord = words[currentWordIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+    const pauseAfterComplete = 2000;
+    const pauseAfterDelete = 500;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        // Typing
+        if (currentText.length < currentWord.length) {
+          setCurrentText(currentWord.slice(0, currentText.length + 1));
+        } else {
+          // Word complete, pause then start deleting
+          setTimeout(() => setIsDeleting(true), pauseAfterComplete);
+        }
+      } else {
+        // Deleting
+        if (currentText.length > 0) {
+          setCurrentText(currentText.slice(0, -1));
+        } else {
+          // Deleted complete, move to next word
+          setIsDeleting(false);
+          setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        }
+      }
+    }, isDeleting ? typingSpeed : (currentText.length === currentWord.length ? pauseAfterComplete : typingSpeed));
+
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentWordIndex, words]);
+
+  return (
+    <span className="inline-block min-w-[200px] text-left">
+      {currentText}
+      <span className="animate-pulse">|</span>
+    </span>
+  );
+}
+
 function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -191,7 +235,7 @@ function HeroSection() {
               transition={{ duration: 0.6 }}
               className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
             >
-              Speed up your money
+              Speed up your <TypewriterText />
             </motion.h1>
             
             <motion.p 
