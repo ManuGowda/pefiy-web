@@ -108,14 +108,15 @@ export function Navigation() {
                   className="absolute right-0 mt-2 w-48 backdrop-blur-xl bg-background/60 border border-border/50 rounded-2xl shadow-lg overflow-hidden"
                 >
                   <div className="py-2">
-                    <a 
-                      href="#about" 
-                      className="block px-4 py-3 text-sm hover-elevate active-elevate-2 transition-colors"
-                      data-testid="link-about"
-                      onClick={() => setBurgerMenuOpen(false)}
-                    >
-                      About
-                    </a>
+                    <Link href="/about">
+                      <div 
+                        className="block px-4 py-3 text-sm hover-elevate active-elevate-2 transition-colors cursor-pointer"
+                        data-testid="link-about"
+                        onClick={() => setBurgerMenuOpen(false)}
+                      >
+                        About
+                      </div>
+                    </Link>
                     <Link href="/blogs">
                       <div 
                         className="block px-4 py-3 text-sm hover-elevate active-elevate-2 transition-colors cursor-pointer"
