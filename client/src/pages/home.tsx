@@ -1,9 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Sparkles, Shield, TrendingUp, Zap, CheckCircle, Menu, X, Twitter, Github, Linkedin, Moon, Sun } from "lucide-react";
+import { Sparkles, Shield, TrendingUp, Zap, CheckCircle, Menu, X, Twitter, Github, Linkedin, Moon, Sun, ArrowRight } from "lucide-react";
 import heroImage from "@assets/landing page_1763055675446.png";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
@@ -169,6 +170,22 @@ function HeroSection() {
             variants={staggerContainer}
             className="flex-1 w-full text-center lg:text-left"
           >
+            <motion.div
+              variants={fadeUpVariants}
+              transition={{ duration: 0.6 }}
+              className="mb-6"
+            >
+              <Link href="/blogs">
+                <a className="inline-flex items-center gap-2 text-sm hover-elevate active-elevate-2 px-4 py-2 rounded-full border border-border/50 transition-all group">
+                  <span className="font-semibold text-primary">News</span>
+                  <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+                    The Pefiy rewards program is now live
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
+                </a>
+              </Link>
+            </motion.div>
+
             <motion.h1 
               variants={fadeUpVariants}
               transition={{ duration: 0.6 }}
