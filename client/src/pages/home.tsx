@@ -29,7 +29,7 @@ const staggerContainer = {
 
 function TypewriterText() {
   // Attribute-only typewriter (used after the static "Invest with")
-  const attributes = useMemo(() => ['clarity', 'insight', 'context', 'guidance', 'direction', 'connection'], []);
+  const attributes = useMemo(() => ['Discipline', 'Expertise', 'Freedom', 'Purpose'], []);
 
   const [index, setIndex] = useState(0);
   const [text, setText] = useState('');
@@ -131,7 +131,7 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-8"
             >
-              <p className="text-lg md:text-xl font-semibold text-foreground">Want investing to finally make sense?</p>
+              <p className="text-lg md:text-xl font-semibold text-foreground">Need a financial companion?</p>
 
               <p className="mt-3 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
                 Build a <span className="font-semibold text-foreground">deeper understanding of money</span> — from macro
