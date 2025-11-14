@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# You can add Disallow rules here if needed

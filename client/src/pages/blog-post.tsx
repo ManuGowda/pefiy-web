@@ -71,6 +71,29 @@ const blogContent: Record<string, any> = {
       <h2>Best Practices</h2>
       <p>Always do your research, diversify your portfolio, and never invest more than you can afford to lose. With Pefiy's AI-powered tools, you'll have the insights you need to make informed decisions.</p>
     `
+  },
+  "stable-coins-explained": {
+    date: "MARCH 22, 2025",
+    category: "EDUCATION",
+    tags: ["CRYPTO"],
+    title: "Understanding Stable Coins for Beginners",
+    content: `
+      <p>New to crypto? This comprehensive guide breaks down everything you need to know about stable coins, from basic concepts to advanced strategies.</p>
+      
+      <h2>Getting Started</h2>
+      <p>Stable coins can seem intimidating at first, but with the right knowledge and tools, anyone can become a confident investor. Let's start with the basics.</p>
+      
+      <h2>Key Concepts</h2>
+      <ul>
+        <li>Understanding blockchain technology</li>
+        <li>Different types of stable coins</li>
+        <li>How to evaluate investment opportunities</li>
+        <li>Risk management strategies</li>
+      </ul>
+      
+      <h2>Best Practices</h2>
+      <p>Always do your research, diversify your portfolio, and never invest more than you can afford to lose. With Pefiy's AI-powered tools, you'll have the insights you need to make informed decisions.</p>
+    `
   }
 };
 

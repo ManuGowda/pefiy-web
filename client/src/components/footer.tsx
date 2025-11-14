@@ -1,4 +1,5 @@
-import { Sparkles, Twitter, Github, Linkedin } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import { Link } from "wouter";
 
 export function Footer() {
   return (
@@ -11,18 +12,18 @@ export function Footer() {
             </div>
             <span className="font-semibold">Pefiy</span>
           </div>
-
           <p className="text-sm text-muted-foreground">
             © 2025 Pefiy. All rights reserved.
           </p>
-
-          <div className="flex items-center gap-4">
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="link-twitter">
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="link-linkedin">
-              <Linkedin className="w-5 h-5" />
-            </a>
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
+              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Privacy
+              </Link>
+              <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Terms
+              </Link>
+            </div>
           </div>
         </div>
       </div>

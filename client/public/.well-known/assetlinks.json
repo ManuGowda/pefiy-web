@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.get_login_creds",
+      "delegate_permission/common.use_passkeys"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pefiy.app",
+      "sha256_cert_fingerprints": [
+        "E8:F4:DC:81:9D:8A:A4:EE:D3:65:AF:F3:C6:79:F5:16:EB:57:26:67:8C:B6:0E:DE:4A:CD:62:0E:BE:22:8D:30"
+      ]
+    }
+  }
+]

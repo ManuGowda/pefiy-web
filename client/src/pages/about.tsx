@@ -33,7 +33,7 @@ export default function About() {
           >
             <motion.h1 
               variants={fadeUpVariants}
-              className="text-4xl md:text-5xl font-bold mb-6"
+              className="text-4xl md:text-5xl font-bold mb-6 text-center"
             >
               About Pefiy
             </motion.h1>
@@ -124,14 +124,25 @@ export default function About() {
                     We're just getting started, and we'd love for you to be part of the Pefiy story. 
                     Join our waitlist today to be among the first to experience the future of financial technology.
                   </p>
-                  <Button 
-                    size="lg"
-                    variant="default"
-                    onClick={() => window.location.href = '/#waitlist'}
-                    data-testid="button-join-about"
-                  >
-                    Join the Waitlist
-                  </Button>
+                  <div className="mt-4 flex justify-center">
+                    <Button
+                      size="lg"
+                      variant="default"
+                      onClick={() => {
+                        if (window.location.pathname === '/') {
+                          const el = document.getElementById('waitlist');
+                          if (el) {
+                            el.scrollIntoView({ behavior: 'smooth' });
+                            return;
+                          }
+                        }
+                        window.location.href = '/#waitlist';
+                      }}
+                      data-testid="button-join-about"
+                    >
+                      Request Access
+                    </Button>
+                  </div>
                 </div>
               </div>
             </motion.div>

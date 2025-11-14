@@ -6,12 +6,11 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { Sparkles, Shield, TrendingUp, Zap, CheckCircle, ArrowRight } from "lucide-react";
-import heroImage from "@assets/landing page_1763055675446.png";
+import RotatingBanner from "@/components/rotating-banner";
+import { Sparkles, Shield, TrendingUp, Zap, CheckCircle, ArrowRight, BookOpen } from "lucide-react";
+import heroImage from "@assets/landing_page.png";
 import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import { insertWaitlistSchema } from "@shared/schema";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -29,61 +28,59 @@ const staggerContainer = {
 };
 
 function TypewriterText() {
-  const words = useMemo(() => ['money', 'learn', 'community'], []);
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
+  // Attribute-only typewriter (used after the static "Invest with")
+  const attributes = useMemo(() => ['clarity', 'insight', 'context', 'guidance', 'direction', 'connection'], []);
+
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState('');
+  const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    const currentWord = words[currentWordIndex];
-    const typingSpeed = isDeleting ? 50 : 100;
-    const pauseAfterComplete = 2000;
-    const pauseAfterDelete = 500;
+    const current = attributes[index];
+    const typingSpeed = 60; // faster typing
+    const deletingSpeed = 30; // faster deleting
+    const pauseAfterComplete = 700; // shorter pause
 
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        // Typing
-        if (currentText.length < currentWord.length) {
-          setCurrentText(currentWord.slice(0, currentText.length + 1));
-        } else {
-          // Word complete, pause then start deleting
-          setTimeout(() => setIsDeleting(true), pauseAfterComplete);
-        }
+    let timer: number | undefined;
+
+    if (isTyping) {
+      if (text.length < current.length) {
+        timer = window.setTimeout(() => setText(current.slice(0, text.length + 1)), typingSpeed);
       } else {
-        // Deleting
-        if (currentText.length > 0) {
-          setCurrentText(currentText.slice(0, -1));
-        } else {
-          // Deleted complete, move to next word
-          setIsDeleting(false);
-          setCurrentWordIndex((prev) => (prev + 1) % words.length);
-        }
+        timer = window.setTimeout(() => setIsTyping(false), pauseAfterComplete);
       }
-    }, isDeleting ? typingSpeed : (currentText.length === currentWord.length ? pauseAfterComplete : typingSpeed));
+    } else {
+      if (text.length > 0) {
+        timer = window.setTimeout(() => setText(text.slice(0, -1)), deletingSpeed);
+      } else {
+        setIndex((i) => (i + 1) % attributes.length);
+        setIsTyping(true);
+      }
+    }
 
-    return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentWordIndex, words]);
+    return () => window.clearTimeout(timer);
+  }, [index, text, isTyping, attributes]);
 
   return (
-    <span className="inline-block min-w-[200px] text-left text-primary">
-      {currentText}
-      <span className="animate-pulse inline-block w-[3px] h-[0.8em] bg-primary ml-1 align-middle"></span>
+    <span className="inline-block text-primary font-semibold min-w-[160px]">
+      {text}
+      <span className="animate-pulse inline-block w-[3px] h-[0.9em] bg-primary ml-2 align-middle"></span>
     </span>
   );
 }
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-8">
       <div className="absolute inset-0 bg-background"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32 relative z-10">
-        <div className="flex flex-col-reverse lg:flex-row gap-12 items-center">
-          <motion.div 
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16 relative z-10">
+        <div className="flex flex-col-reverse lg:flex-row gap-12 items-stretch">
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="flex-1 w-full text-center lg:text-left"
+            className="flex-1 w-full text-center lg:text-left flex flex-col justify-center h-full lg:max-w-[640px] lg:pr-12"
           >
             <motion.div
               variants={fadeUpVariants}
@@ -101,59 +98,85 @@ function HeroSection() {
               </Link>
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               variants={fadeUpVariants}
               transition={{ duration: 0.6 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 leading-tight"
             >
-              Speed up your <TypewriterText />
+              <span className="block">Invest with</span>
+              {/* Reserve the second line height so typing doesn't push content */}
+              <span className="block mt-2">
+                <TypewriterText />
+              </span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.div
               variants={fadeUpVariants}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed"
+              className="mb-8"
             >
-              Up to 3x more of what any bank gives you.
-            </motion.p>
+              <p className="text-lg md:text-xl font-semibold text-foreground">Want investing to finally make sense?</p>
 
-            <motion.div 
+              <p className="mt-3 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
+                Build a <span className="font-semibold text-foreground">deeper understanding of money</span> — from macro
+                trends to a practical, personalized plan you can act on. Learn at your own pace and build confidence with
+                a community that supports your goals.
+              </p>
+
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center gap-2 bg-card/60 border border-border px-4 py-2 rounded-full text-sm">
+                  <BookOpen className="w-4 h-4 text-primary" />
+                  Curated lessons
+                </span>
+                <span className="inline-flex items-center gap-2 bg-card/60 border border-border px-4 py-2 rounded-full text-sm">
+                  <TrendingUp className="w-4 h-4 text-primary" />
+                  Real-world examples
+                </span>
+                <span className="inline-flex items-center gap-2 bg-card/60 border border-border px-4 py-2 rounded-full text-sm">
+                  <Shield className="w-4 h-4 text-primary" />
+                  Safety-first approach
+                </span>
+              </div>
+            </motion.div>
+
+            <motion.div
               variants={fadeUpVariants}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6"
             >
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="default"
                 data-testid="button-join-hero"
                 onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Join Waitlist
+                Start your journey
                 <Sparkles className="ml-2 w-5 h-5" />
               </Button>
             </motion.div>
 
-            <motion.p
+            {/* <motion.p
               variants={fadeUpVariants}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="text-sm text-muted-foreground"
               data-testid="text-social-proof"
             >
               Join 20,000+ people using Pefiy
-            </motion.p>
+            </motion.p> */}
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex-1 w-full relative"
+            className="flex-1 w-full relative h-full"
           >
-            <div className="relative z-10">
-              <img 
-                src={heroImage} 
-                alt="3D character viewing financial charts and analytics" 
-                className="w-full max-w-2xl mx-auto lg:ml-auto lg:mr-0 opacity-90 dark:opacity-80 mix-blend-luminosity dark:mix-blend-normal rounded-2xl"
+            {/* Wrapper ensures rounded (curvy) edges and hides overflow. Use full height so both columns match. */}
+            <div className="relative z-10 overflow-hidden rounded-3xl mx-auto max-w-2xl lg:ml-auto lg:mr-0 h-full">
+              <img
+                src={heroImage}
+                alt="3D character viewing financial charts and analytics"
+                className="w-full h-full object-cover opacity-90 dark:opacity-80 mix-blend-luminosity dark:mix-blend-normal"
                 data-testid="img-hero-mockup"
               />
             </div>
@@ -238,8 +261,26 @@ function WaitlistSection() {
 
   const joinWaitlistMutation = useMutation({
     mutationFn: async (data: { email: string }) => {
-      const validated = insertWaitlistSchema.parse(data);
-      return await apiRequest("POST", "/api/waitlist", validated);
+      const res = await fetch("https://api.pefiy.com/api/v1/waiting-list", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        let message = "Failed to request access, contact: contact@pefiy.com";
+        try {
+          const errData = await res.json();
+          message = errData.message || message;
+        } catch {
+          // ignore JSON parse errors
+        }
+        const error = new Error(message);
+        (error as any).status = res.status;
+        throw error;
+      }
+
+      return res.json();
     },
     onSuccess: () => {
       setIsSubmitted(true);
@@ -252,7 +293,7 @@ function WaitlistSection() {
     onError: (error: any) => {
       toast({
         title: "Something went wrong",
-        description: error.message || "Please try again later.",
+        description: error?.message || "Please try again later.",
         variant: "destructive",
       });
     },
@@ -267,6 +308,9 @@ function WaitlistSection() {
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // Don’t waste your time juggling dashboards and second-guessing trades
+  // Meet Hopper your crypto insider built to front-run chaos and make life easy.
 
   return (
     <section id="waitlist" className="py-16 md:py-24 lg:py-32">
@@ -283,14 +327,16 @@ function WaitlistSection() {
               <>
                 <motion.div variants={fadeUpVariants} transition={{ duration: 0.6 }}>
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                    Make your next move
+                    Meet Pefiy
+                    <Sparkles className="ml-2 inline-block align-middle w-10 h-10 text-primary" aria-hidden="true" />
                   </h2>
+                  
                   <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                    Enter your email to join the waitlist and stay ahead of the curve with our newsletter.
+                    Your true financial companion. Invest smarter with insight, and grow with confidence.
                   </p>
                 </motion.div>
 
-                <motion.form 
+                <motion.form
                   variants={fadeUpVariants}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   onSubmit={handleSubmit}
@@ -305,7 +351,7 @@ function WaitlistSection() {
                     required
                     data-testid="input-email-waitlist"
                   />
-                  <Button 
+                  <Button
                     type="submit"
                     size="lg"
                     variant="default"
@@ -315,14 +361,6 @@ function WaitlistSection() {
                     {joinWaitlistMutation.isPending ? "Joining..." : "Join the waitlist"}
                   </Button>
                 </motion.form>
-
-                <motion.p 
-                  variants={fadeUpVariants}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="text-sm text-muted-foreground mt-4"
-                >
-                  No spam, ever. Unsubscribe at any time.
-                </motion.p>
               </>
             ) : (
               <motion.div
@@ -358,6 +396,7 @@ export default function Home() {
   return (
     <div className="relative">
       <Navigation />
+      <RotatingBanner />
       <HeroSection />
       <FeaturesSection />
       <WaitlistSection />
