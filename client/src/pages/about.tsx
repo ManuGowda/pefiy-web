@@ -140,7 +140,7 @@ export default function About() {
                       }}
                       data-testid="button-join-about"
                     >
-                      Request Access
+                      Join the waitlist
                     </Button>
                   </div>
                 </div>

@@ -153,7 +153,7 @@ export default function Blogs() {
                     window.location.href = '/#waitlist';
                   }}
                 >
-                  Request Access
+                  Join the waitlist
                 </Button>
               </div>
             </div>

@@ -94,7 +94,7 @@ export function Navigation() {
                 data-testid="button-join-nav"
                 onClick={scrollToWaitlist}
               >
-                Request Access
+                Join the waitlist
               </Button>
             </div>
 
@@ -143,7 +143,7 @@ export function Navigation() {
                         className="w-full px-4 py-3 text-sm text-primary font-medium hover-elevate active-elevate-2 transition-colors text-left"
                         data-testid="button-join-burger"
                       >
-                        Request Access
+                        Join the waitlist
                       </button>
                     </div>
                   </div>

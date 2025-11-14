@@ -119,8 +119,7 @@ function HeroSection() {
 
               <p className="mt-3 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
                 Build a <span className="font-semibold text-foreground">deeper understanding of money</span> — from macro
-                trends to a practical, personalized plan you can act on. Learn at your own pace and build confidence with
-                a community that supports your goals.
+                trends to a practical, personalized plan you can act on. Learn at your own pace and invest with confidence with Pefiy.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -222,33 +221,46 @@ function FeaturesSection() {
   return (
     <section id="features" className="py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={staggerContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              variants={fadeUpVariants}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <Card className="p-6 bg-card border-border h-full" data-testid={feature.testId}>
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary mb-4">
-                  <feature.icon className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {feature.description}
-                </p>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="relative">
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={staggerContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 opacity-60 blur-sm pointer-events-none select-none"
+            aria-hidden="true"
+          >
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                variants={fadeUpVariants}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Card className="p-6 bg-card/80 border border-dashed border-border/70 h-full shadow-inner shadow-black/10">
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/70 mb-4 brightness-90">
+                    <feature.icon className="w-5 h-5 text-primary-foreground/90" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 backdrop-blur-[2px] bg-background/60 rounded-3xl">
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary font-semibold uppercase tracking-[0.2em] text-xs">
+              coming soon
+              <Sparkles className="w-4 h-4" />
+            </div>
+            <p className="mt-6 text-lg md:text-xl font-semibold text-foreground">
+              We&apos;re polishing something special. Features will unlock soon. <br /> Join the waitlist to be among the first to experience it.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -268,7 +280,7 @@ function WaitlistSection() {
       });
 
       if (!res.ok) {
-        let message = "Failed to request access, contact: contact@pefiy.com";
+        let message = "Failed to join the list, contact: contact@pefiy.com";
         try {
           const errData = await res.json();
           message = errData.message || message;
