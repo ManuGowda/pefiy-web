@@ -377,11 +377,11 @@ function WaitlistSection() {
                 </p>
                 <Button
                   variant="outline"
-                  onClick={() => setIsSubmitted(false)}
+                  onClick={() => (window.location.href = "/blogs")}
                   className="bg-input border-border"
                   data-testid="button-close-success"
                 >
-                  Close and explore
+                  Want to know more about Pefiy?
                 </Button>
               </motion.div>
             )}
