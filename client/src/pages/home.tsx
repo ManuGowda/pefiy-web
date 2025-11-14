@@ -62,9 +62,25 @@ function TypewriterText() {
   }, [index, text, isTyping, attributes]);
 
   return (
-    <span className="inline-block text-primary font-semibold min-w-[160px]">
-      {text}
-      <span className="animate-pulse inline-block w-[3px] h-[0.9em] bg-primary ml-2 align-middle"></span>
+    <span className="inline-block font-semibold min-w-[160px] relative">
+      <span 
+        className="inline-block bg-gradient-to-r from-primary via-pefiy-blue-500 to-primary bg-clip-text text-transparent"
+        style={{
+          backgroundSize: '200% 100%',
+          animation: 'shimmer 3s ease-in-out infinite',
+          filter: 'drop-shadow(0 2px 4px rgba(29, 78, 216, 0.3)) drop-shadow(0 0 8px rgba(59, 130, 246, 0.2))',
+          textShadow: '0 0 20px rgba(59, 130, 246, 0.3)',
+        }}
+      >
+        {text}
+      </span>
+      <span 
+        className="animate-pulse inline-block w-[3px] h-[0.9em] ml-2 align-middle rounded-full"
+        style={{
+          background: 'linear-gradient(to bottom, hsl(var(--primary)), #3b82f6)',
+          boxShadow: '0 0 4px rgba(59, 130, 246, 0.6)',
+        }}
+      ></span>
     </span>
   );
 }

@@ -26,7 +26,8 @@
   --popover: 0 0% 94%;
   --popover-foreground: 0 0% 10%;
   --popover-border: 0 0% 88%;
-  --primary: 110 72% 56%;
+  /* Primary color from branding: Blue 700 (#1d4ed8) */
+  --primary: 217 91% 60%;
   --primary-foreground: 0 0% 100%;
   --secondary: 0 0% 20%;
   --secondary-foreground: 0 0% 100%;
@@ -43,7 +44,7 @@
   --chart-3: 0 0% 70%;
   --chart-4: 110 72% 56%;
   --chart-5: 0 0% 60%;
-  --font-sans: Inter, system-ui, -apple-system, sans-serif;
+  --font-sans: system-ui, -apple-system, sans-serif, Inter;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .5rem;
@@ -110,7 +111,8 @@
   --popover: 0 0% 8%;
   --popover-foreground: 0 0% 98%;
   --popover-border: 0 0% 16%;
-  --primary: 110 72% 56%;
+  /* Primary color from branding: Blue 700 (#1d4ed8) */
+  --primary: 217 91% 60%;
   --primary-foreground: 0 0% 4%;
   --secondary: 0 0% 90%;
   --secondary-foreground: 0 0% 10%;
@@ -319,5 +321,14 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 }

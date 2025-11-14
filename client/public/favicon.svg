@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <radialGradient id="sphereGradient" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#6B9EFF" />
+      <stop offset="30%" stop-color="#5588FF" />
+      <stop offset="60%" stop-color="#3366EE" />
+      <stop offset="100%" stop-color="#0033BB" />
+    </radialGradient>
+    <filter id="sphereShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+      <feOffset dx="0" dy="2" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- L-shaped pattern -->
+  <g filter="url(#sphereShadow)">
+    <!-- Bottom row -->
+    <circle cx="40" cy="120" r="18" fill="url(#sphereGradient)" />
+    <circle cx="80" cy="120" r="18" fill="url(#sphereGradient)" />
+    <circle cx="120" cy="120" r="18" fill="url(#sphereGradient)" />
+    
+    <!-- Left column -->
+    <circle cx="40" cy="80" r="18" fill="url(#sphereGradient)" />
+    <circle cx="40" cy="40" r="18" fill="url(#sphereGradient)" />
+    
+    <!-- Top row partial -->
+    <circle cx="80" cy="40" r="18" fill="url(#sphereGradient)" />
+    <circle cx="120" cy="40" r="18" fill="url(#sphereGradient)" />
+  </g>
+</svg>
+

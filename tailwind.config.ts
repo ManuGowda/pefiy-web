@@ -9,6 +9,9 @@ export default {
         lg: ".5625rem", /* 9px */
         md: ".375rem", /* 6px */
         sm: ".1875rem", /* 3px */
+        xl: "0.625rem", /* 10px - default radius from branding */
+        "2xl": "0.75rem", /* 12px */
+        "3xl": "1rem", /* 16px */
       },
       colors: {
         // Flat / base colors (regular buttons)
@@ -81,11 +84,40 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        // Brand colors from Figma branding
+        "pefiy-blue": {
+          "900": "#1e3a8a",
+          "800": "#1e40af",
+          "700": "#1d4ed8",
+          "600": "#2563eb",
+          "500": "#3b82f6",
+          "400": "#60a5fa",
+          "300": "#93c5fd",
+          "200": "#bfdbfe",
+          "100": "#dbeafe",
+        },
+        "pefiy-logo": {
+          light: "#6B9EFF",
+          mid: "#5588FF",
+          dark: "#3366EE",
+          deep: "#0033BB",
+        },
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        serif: ["var(--font-serif)"],
-        mono: ["var(--font-mono)"],
+        sans: ["system-ui", "-apple-system", "sans-serif", "var(--font-sans)"],
+        serif: ["Georgia", "serif", "var(--font-serif)"],
+        mono: ["Menlo", "monospace", "var(--font-mono)"],
+      },
+      fontSize: {
+        display: ["56px", { lineHeight: "1.1", fontWeight: "700" }],
+        "2xl": ["48px", { lineHeight: "1.2", fontWeight: "700" }],
+        xl: ["36px", { lineHeight: "1.3", fontWeight: "700" }],
+        lg: ["28px", { lineHeight: "1.4", fontWeight: "600" }],
+        base: ["24px", { lineHeight: "1.5", fontWeight: "600" }],
+        bodyLg: ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+        body: ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+        sm: ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+        xs: ["12px", { lineHeight: "1.4", fontWeight: "400" }],
       },
       keyframes: {
         "accordion-down": {

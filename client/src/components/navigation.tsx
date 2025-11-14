@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { WaveLogo } from "@/components/logo";
 
 export function Navigation() {
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
@@ -66,9 +67,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-14 px-6">
           <Link href="/">
             <div className="flex items-center gap-2 cursor-pointer" data-testid="link-logo">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-primary-foreground" />
-              </div>
+              <WaveLogo variant="icon" className="w-8 h-8" />
               <span className="text-xl font-bold">Pefiy</span>
             </div>
           </Link>
