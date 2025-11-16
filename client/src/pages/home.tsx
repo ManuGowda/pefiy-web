@@ -11,6 +11,7 @@ import { Sparkles, Shield, TrendingUp, Zap, CheckCircle, ArrowRight, BookOpen } 
 import heroImage from "@assets/landing_page.png";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
+import { WaveLogo } from "@/components/logo";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -356,7 +357,7 @@ function WaitlistSection() {
                 <motion.div variants={fadeUpVariants} transition={{ duration: 0.6 }}>
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                     Meet Pefiy
-                    <Sparkles className="ml-2 inline-block align-middle w-10 h-10 text-primary" aria-hidden="true" />
+                    <WaveLogo variant="icon" className="ml-2 inline-block align-middle w-10 h-10 text-primary" aria-hidden="true" />
                   </h2>
                   
                   <p className="text-lg md:text-xl text-muted-foreground mb-8">
