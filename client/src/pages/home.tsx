@@ -273,7 +273,7 @@ function FeaturesSection() {
               <Sparkles className="w-4 h-4" />
             </div>
             <p className="mt-6 text-lg md:text-xl font-semibold text-foreground">
-              We&apos;re polishing something special. Features will unlock soon. <br /> Join the waitlist to be among the first to experience it.
+            We&apos;re building the tools to cut through the noise.<br />The initial phase is launching soon.
             </p>
           </div>
         </div>
